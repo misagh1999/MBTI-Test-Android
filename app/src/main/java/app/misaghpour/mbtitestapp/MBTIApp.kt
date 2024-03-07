@@ -8,7 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import app.misaghpour.mbtitestapp.ui.screens.OnBoardingScreen
 import app.misaghpour.mbtitestapp.ui.screens.PreStartScreen
-import app.misaghpour.mbtitestapp.ui.screens.QuestionsScreen
+import app.misaghpour.mbtitestapp.ui.screens.questions.QuestionsScreen
 
 enum class AppScreen(@StringRes val title: Int) {
     OnBoarding(title = R.string.onboarding),

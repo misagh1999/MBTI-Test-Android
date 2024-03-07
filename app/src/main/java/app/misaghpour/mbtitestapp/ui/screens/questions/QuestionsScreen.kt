@@ -69,14 +69,14 @@ fun QuestionsScreen(
         Column {
             QuestionItem(
                 text = testUiState.optionText1,
-                isHighlighted = false,
+                isHighlighted = testUiState.selectedOptionIndex == 1,
                 onClicked = {
                     testViewModel.selectOption(1)
                 })
             Spacer(modifier = Modifier.height(16.dp))
             QuestionItem(
                 text = testUiState.optionText2,
-                isHighlighted = false,
+                isHighlighted = testUiState.selectedOptionIndex == 2,
                 onClicked = {
                     testViewModel.selectOption(2)
                 })

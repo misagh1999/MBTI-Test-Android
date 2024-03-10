@@ -7,4 +7,12 @@
     <string name="result">Result</string>
     <string name="sample_option1">This is option 1</string>
     <string name="sample_option2">This is option 2</string>
+
+    <string name="sample_favorite_sentence">
+        I am deeply affected by the joys and sorrows that the human soul can experience.
+    </string>
+
+    <string name="sample_description">
+        The ENFJ type is a person who is interested and kind, and notices the admirable qualities of others. He can relate to a variety of people. The ENFJ type is an excellent communicator, a natural leader, and very skilled at motivating and persuading others. At work, he is likely to be very success-oriented and likes to get what he wants. This type is knowledgeable, disciplined, goal-oriented, and decisive, and expects the same from others.
+    </string>
 </resources>

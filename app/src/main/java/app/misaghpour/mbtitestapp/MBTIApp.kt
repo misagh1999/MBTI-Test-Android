@@ -9,11 +9,13 @@ import androidx.navigation.compose.rememberNavController
 import app.misaghpour.mbtitestapp.ui.screens.OnBoardingScreen
 import app.misaghpour.mbtitestapp.ui.screens.PreStartScreen
 import app.misaghpour.mbtitestapp.ui.screens.questions.QuestionsScreen
+import app.misaghpour.mbtitestapp.ui.screens.result.ResultScreen
 
 enum class AppScreen(@StringRes val title: Int) {
     OnBoarding(title = R.string.onboarding),
     PreStart(title = R.string.pre_start),
-    Questions(title = R.string.questions)
+    Questions(title = R.string.questions),
+    Result(title = R.string.result)
 }
 
 @Composable
@@ -26,7 +28,10 @@ fun MBTIApp(
     ) {
         composable(route = AppScreen.OnBoarding.name){
             OnBoardingScreen(onNextBtnClicked = {
-                navController.navigate(AppScreen.PreStart.name)
+                // TODO: just for examine the result page
+                // uncomment it later
+                navController.navigate(AppScreen.Result.name)
+//                navController.navigate(AppScreen.PreStart.name)
             })
         }
         composable(route = AppScreen.PreStart.name){
@@ -36,6 +41,9 @@ fun MBTIApp(
         }
         composable(route = AppScreen.Questions.name) {
             QuestionsScreen()
+        }
+        composable(route = AppScreen.Result.name){
+            ResultScreen()
         }
     }
 }

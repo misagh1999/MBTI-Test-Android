@@ -6,5 +6,6 @@ data class TestUiState(
     val optionText2: String = "Option 2",
     val selectedOptionIndex: Int = 0,
     val isNextBtnVisible: Boolean = false,
-    val isPreviousBtnVisible: Boolean = false
+    val isPreviousBtnVisible: Boolean = false,
+    val characterType: String = ""
 )

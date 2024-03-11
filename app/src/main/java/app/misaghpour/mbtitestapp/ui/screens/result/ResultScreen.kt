@@ -33,11 +33,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import app.misaghpour.mbtitestapp.R
+import app.misaghpour.mbtitestapp.ui.AppViewModelProvider
 import app.misaghpour.mbtitestapp.ui.theme.MBTITestAppTheme
 
 @Composable
 fun ResultScreen(
-    viewModel: ResultViewModel = viewModel(),
+    viewModel: ResultViewModel = viewModel(factory = AppViewModelProvider.Factory),
     modifier: Modifier = Modifier
 ) {
 

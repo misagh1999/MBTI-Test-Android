@@ -1,8 +1,9 @@
 package app.misaghpour.mbtitestapp.ui.screens.result
 
-import android.app.Application
+import android.content.Context
 import android.util.Log
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
 import app.misaghpour.mbtitestapp.R
 import app.misaghpour.mbtitestapp.model.Result
 import app.misaghpour.mbtitestapp.util.readJsonFromAssets
@@ -12,8 +13,11 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.serialization.json.Json
 
-class ResultViewModel(application: Application) : AndroidViewModel(application) {
-    private val context = application.applicationContext
+class ResultViewModel(
+    savedStateHandle: SavedStateHandle,
+    private val context: Context) : ViewModel() {
+
+    private val characterType: String = checkNotNull(savedStateHandle["type"])
 
     private val _uiState = MutableStateFlow(ResultUiState())
     val uiState: StateFlow<ResultUiState> = _uiState.asStateFlow()
@@ -142,7 +146,8 @@ class ResultViewModel(application: Application) : AndroidViewModel(application) 
     }
 
     private fun loadJsonFile() {
-        val characterType = "INTJ"
+        val characterType = this.characterType
+        Log.d("FINAL_TYPE", characterType)
         val jsonString = readJsonFromAssets(context, "$characterType.json")
 
         val result: Result = try {

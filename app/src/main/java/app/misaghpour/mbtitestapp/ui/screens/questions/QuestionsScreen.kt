@@ -29,10 +29,16 @@ import app.misaghpour.mbtitestapp.ui.theme.MBTITestAppTheme
 @Composable
 fun QuestionsScreen(
     testViewModel: TestViewModel = viewModel(),
+    onFinishedTest: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
 
     val testUiState by testViewModel.uiState.collectAsState()
+
+    if(testUiState.characterType.isNotEmpty()){
+        onFinishedTest(testUiState.characterType)
+        testViewModel.navigateToResultDone()
+    }
 
     Column(modifier = modifier.padding(36.dp), horizontalAlignment = Alignment.CenterHorizontally) {
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -108,6 +114,6 @@ fun QuestionItem(text: String, onClicked: () -> Unit, isHighlighted: Boolean = f
 @Composable
 fun QuestionsScreenPreview() {
     MBTITestAppTheme {
-        QuestionsScreen()
+        QuestionsScreen(onFinishedTest = {})
     }
 }

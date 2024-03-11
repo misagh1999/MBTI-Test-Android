@@ -43,7 +43,11 @@ class ResultViewModel(application: Application) : AndroidViewModel(application) 
     private fun updateUiState() {
         var title = ""
         var text = ""
-        var image = R.drawable.esfp_type
+        var image = context.resources.getIdentifier(
+            result.type.lowercase(),
+            "drawable",
+            context.packageName
+        )
         when (_index) {
             0 -> {
                 title = MAIN
@@ -138,7 +142,8 @@ class ResultViewModel(application: Application) : AndroidViewModel(application) 
     }
 
     private fun loadJsonFile() {
-        val jsonString = readJsonFromAssets(context, "ENFJ.json")
+        val characterType = "INTJ"
+        val jsonString = readJsonFromAssets(context, "$characterType.json")
 
         val result: Result = try {
             Json.decodeFromString(jsonString)

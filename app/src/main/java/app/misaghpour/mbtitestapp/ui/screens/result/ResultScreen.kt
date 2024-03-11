@@ -60,6 +60,7 @@ fun ResultScreen(
                 characterType = uiState.characterType,
                 characterTitle = uiState.characterTitle,
                 favoriteSentence = uiState.favoriteSentence,
+                image = uiState.image,
                 modifier = bodyModifier
             )
         } else if (uiState.title == ResultViewModel.SUGGESTION) {
@@ -107,6 +108,7 @@ fun ResultMain(
     characterType: String,
     characterTitle: String,
     favoriteSentence: String,
+    @DrawableRes image: Int,
     modifier: Modifier = Modifier
 ) {
     Column(modifier = modifier) {
@@ -121,8 +123,8 @@ fun ResultMain(
                 Text(characterTitle)
             }
             Image(
-                painter = painterResource(R.drawable.esfp_type),
-                contentDescription = "ISTP",
+                painter = painterResource(image),
+                contentDescription = null,
                 modifier = Modifier.weight(0.6f)
             )
         }

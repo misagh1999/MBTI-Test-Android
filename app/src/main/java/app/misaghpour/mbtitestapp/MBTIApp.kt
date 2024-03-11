@@ -28,10 +28,7 @@ fun MBTIApp(
     ) {
         composable(route = AppScreen.OnBoarding.name){
             OnBoardingScreen(onNextBtnClicked = {
-                // TODO: just for examine the result page
-                // uncomment it later
-                navController.navigate(AppScreen.Result.name)
-//                navController.navigate(AppScreen.PreStart.name)
+                navController.navigate(AppScreen.PreStart.name)
             })
         }
         composable(route = AppScreen.PreStart.name){
